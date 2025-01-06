@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", serif;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+
+        nav {
+            display: flex;
+            background-color: black;
+            justify-content: space-between;
+            align-items: center;
+
+
+        }
+
+        nav .social,
+        nav .search {
+
+            display: flex;
+            align-items: center;
+        }
+
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+
+        }
+
+        nav a:hover {
+            background-color: aliceblue;
+            color: black;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 50px 0;
+
+        }
+
+        .intro h1 {
+            text-transform: uppercase;
+            font-size: 50px;
+        }
+
+        .intro span {
+            background-color: black;
+            color: white;
+            padding: 0 5px;
+        }
+
+        .hero {
+            background-image: url("https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=600");
+            height: 90vh;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding: 0 50px;
+        }
+
+        .hero h2 {
+            font-size: 35px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            text-transform: uppercase;
+        }
+
+        .hero button {
+            border: none;
+            padding: 10px 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            background-color: rgba(255, 255, 255, 0.716);
+            cursor: pointer;
+        }
+
+        .hero button:hover {
+            background-color: white;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 500px;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        s .sidebar {
+            background-color: aqua;
+            min-width: 400px;
+        }
+
+        .blogs {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .header_detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        .header_detail span {
+            color: rgb(131, 131, 131);
+        }
+
+        .image {
+            width: 100%;
+            height: auto;
+        }
+
+        .image img {
+            height: auto;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .description {
+            margin: 20px 0;
+        }
+
+        .description span {
+            font-weight: 500;
+        }
+
+        .action {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .like {
+            border: 1px solid black;
+            padding: 8px 15px;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+        }
+
+
+        .reply {
+            background-color: black;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+        }
+
+        .reply span {
+            background-color: white;
+            color: black;
+            padding: 3px 9px;
+            margin: 0 3px;
+
+        }
+
+        .like:hover,
+        .reply:hover {
+            background-color: rgb(226, 225, 225);
+            color: black;
+            cursor: pointer;
+        }
+
+        .author {
+            display: flex;
+            gap: 50px;
+            margin-top: 20px;
+        }
+
+        .author .avatar {
+            height: 100px;
+            width: 100px;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .author .avatar img {
+            height: 100%;
+            width: 100%;
+        }
+
+        .author_detail {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 0;
+
+        }
+
+        .sidebar .profile {
+            background-image: url("https://images.pexels.com/photos/3591209/pexels-photo-3591209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+            width: 100%;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: end;
+            border-radius: 10px;
+            overflow: hidden;
+
+
+        }
+
+        .sidebar .profile .conetnt {
+            color: #f1f1f1;
+            background: black;
+            padding: 20px;
+        }
+
+        .popular_post {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .popular_post .header {
+            background-color: black;
+            color: #fff;
+            height: 60px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .popular_post .header h2 {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .popular_post .thumbnauil {
+            height: 40px;
+            width: 50px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .popular_post .thumbnauil img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .popular_post .post {
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+            cursor: pointer;
+
+        }
+
+        .popular_post .post h4 {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .popular_post .post p {
+            font-size: 13px;
+        }
+
+        .popular_post .post:hover {
+            background-color: #cbcaca;
+        }
+
+        .tag {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        .tag .header {
+            background-color: black;
+            color: #fff;
+            height: 60px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tag .header h2 {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .tag .tags {
+            padding: 20px;
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            row-gap: 20px;
+        }
+
+        .tag .tags span {
+            background-color: #cbcaca;
+            padding: 3px 5px;
+            font-size: 12px;
+            text-transform: capitalize;
+        }
+
+        .adverties {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        .adverties .header {
+            background-color: black;
+            color: #fff;
+            height: 60px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .adverties .header h2 {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .adverties .content {
+            padding: 20px;
+        }
+
+        .adverties .ad {
+            background-color: #cbcaca;
+            height: 200px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .inpiration {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        .inpiration .header {
+            background-color: black;
+            color: #fff;
+            height: 60px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .inpiration .header h2 {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .inpiration .images {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .inpiration .images div {
+            height: 150px;
+        }
+
+        .inpiration .images div img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .subscribe {
+            margin-top: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: auto;
+        }
+
+        .subscribe .header {
+            background-color: black;
+            color: #fff;
+            height: 60px;
+            padding: 0 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .subscribe .header h2 {
+            font-weight: 400;
+            font-size: 18px;
+        }
+
+        .subscribe .form {
+            padding: 20px;
+        }
+
+        .subscribe p {
+            font-size: 14px;
+        }
+
+        .subscribe form {
+            display: flex;
+            flex-direction: column;
+
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .subscribe input {
+            padding: 10px;
+        }
+
+        .subscribe button {
+            border: none;
+            padding: 10px;
+            background-color: rgb(230, 110, 67);
+            cursor: pointer;
+        }
+
+        .subscribe button:hover {
+
+
+            background-color: rgb(229, 71, 14);
+
+        }
+        footer {
+            height: 200px;
+            background-color: rgb(82, 82, 82);
+            display: flex;
+            align-items: center;
+           padding: 0 30px;
+        }
+        footer button {
+            background-color: black;
+            border: none;
+            padding: 15px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="social">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+            <a href=""><i class="fa-brands fa-medium"></i></a>
+        </div>
+        <div class="search">
+            <a href="">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+        </div>
+    </nav>
+    <div class="intro">
+        <h1>Anuj Mishra</h1>
+        <p>Welcome to the blog of <span>Web Development</span></p>
+    </div>
+    <div class="hero">
+        <div class="content">
+            <h2>Jane's</h2>
+            <h1>FASHION BLOG
+            </h1>
+            <button>subscribe</button>
+        </div>
+    </div>
+    <div class="main">
+        <div class="blogs">
+            <div class="card">
+                <div class="header_detail">
+                    <h1>TITLE HEADING</h1>
+                    <p>Title description, <span>May 2, 2016</span></p>
+                </div>
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/1126993/pexels-photo-1126993.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="">
+                </div>
+                <div class="description">
+                    <p><span>More Hats!</span> I am crazy about hats these days. Some text about this blog entry.
+                        Fashion fashion and mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed
+                        mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus
+                        at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sedtellus ut rutrum.
+                        Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.
+                    </p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco.</p>
+                </div>
+                <div class="action">
+                    <button class="like"><i class="fa-regular fa-heart"></i>like</button>
+                    <button class="reply">replies <span>1</span></button>
+                </div>
+                <hr>
+                <div class="author">
+                    <div class="avatar">
+                        <img src="https://i.pinimg.com/236x/e7/9d/55/e79d55595ea1d186daa0e639dfce3eb4.jpg" alt="">
+                    </div>
+                    <div class="author_detail">
+                        <h3>
+                            George <span>May 3, 2015, 6:32 PM</span>
+                        </h3>
+                        <p>Great blog post! Following
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="header_detail">
+                    <h1>TITLE HEADING</h1>
+                    <p>Title description, <span>May 2, 2016</span></p>
+                </div>
+                <div class="image">
+                    <img src="https://images.pexels.com/photos/17269927/pexels-photo-17269927/free-photo-of-buildings-in-city-on-sea-coast-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                        alt="">
+                </div>
+                <div class="description">
+                    <p><span>More Hats!</span> I am crazy about hats these days. Some text about this blog entry.
+                        Fashion fashion and mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed
+                        mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus
+                        at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sedtellus ut rutrum.
+                        Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.
+                    </p>
+                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do
+                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                        nostrud exercitation ullamco.</p>
+                </div>
+                <div class="action">
+                    <button class="like"><i class="fa-regular fa-heart"></i>like</button>
+                    <button class="reply">replies <span>1</span></button>
+                </div>
+                <hr>
+                <div class="author">
+                    <div class="avatar">
+                        <img src="https://i.pinimg.com/236x/e7/9d/55/e79d55595ea1d186daa0e639dfce3eb4.jpg" alt="">
+                    </div>
+                    <div class="author_detail">
+                        <h3>
+                            George <span>May 3, 2015, 6:32 PM</span>
+                        </h3>
+                        <p>Great blog post! Following
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="profile">
+                <div class="conetnt">
+                    <h3>My Name</h3>
+                    <p>
+                        Just me, myself and I, exploring the universe of uknownment. I have a heart of love and a
+                        interest of lorem ipsum and mauris neque quam blog. I want to share my world with you.
+                    </p>
+                </div>
+            </div>
+            <div class="popular_post">
+                <div class="header">
+                    <h2>Popular Posts
+                    </h2>
+                </div>
+                <div class="posts">
+                    <div class="post">
+                        <div class="thumbnauil">
+                            <img src="https://images.pexels.com/photos/7348610/pexels-photo-7348610.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="">
+                        </div>
+                        <div>
+                            <h4>Denim</h4>
+                            <p>Sed mattis nunc</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post">
+                        <div class="thumbnauil">
+                            <img src="https://images.pexels.com/photos/29981022/pexels-photo-29981022/free-photo-of-casual-portrait-of-man-with-headphones-outdoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                alt="">
+                        </div>
+                        <div>
+                            <h4>Denim</h4>
+                            <p>Sed mattis nunc</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post">
+                        <div class="thumbnauil">
+                            <img src="https://images.pexels.com/photos/6437715/pexels-photo-6437715.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                                alt="">
+                        </div>
+                        <div>
+                            <h4>Denim</h4>
+                            <p>Sed mattis nunc</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post">
+                        <div class="thumbnauil">
+                            <img src="https://images.pexels.com/photos/29656484/pexels-photo-29656484/free-photo-of-stylish-man-with-coffee-in-monochrome-portrait.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+                                alt="">
+                        </div>
+                        <div>
+                            <h4>Denim</h4>
+                            <p>Sed mattis nunc</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="adverties">
+                <div class="header">
+                    <h2>Advertise
+
+                    </h2>
+                </div>
+                <div class="content">
+                    <div class="ad">
+                        your AD Here
+                    </div>
+                </div>
+            </div>
+            <div class="tag">
+                <div class="header">
+                    <h2>Tags
+
+                    </h2>
+                </div>
+                <div class="tags">
+                    <span>fashion</span>
+                    <span>new yourk</span>
+                    <span>london</span>
+                    <span>hats</span>
+                    <span>norway</span>
+                    <span>ideas</span>
+                    <span>deals</span>
+                    <span>cloathing</span>
+                    <span>news</span>
+                    <span>shoping</span>
+                </div>
+            </div>
+            <div class="inpiration">
+                <div class="header">
+                    <h2>Inspiration
+
+                    </h2>
+                </div>
+                <div class="images">
+                    <div>
+                        <img src="https://www.w3schools.com/w3images/jeans.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="https://www.w3schools.com/w3images/avatar_hat.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="https://www.w3schools.com/w3images/team1.jpg" alt="">
+                    </div>
+                    <div>
+                        <img src="https://www.w3schools.com/w3images/team4.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="subscribe">
+                <div class="header">
+                    <h2>Subscribe
+
+                    </h2>
+                </div>
+                <div class="form">
+                    <p>Enter your e-mail below and get notified on the latest blog posts.</p>
+                    <form action="">
+                        <input type="text" name="" id="" placeholder="Enter e-mail">
+                        <button>Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <button class="" id="to_top">To The Top</button>
+    </footer>
+
+    <script>
+        const btn = document.getElementById("to_top")
+        btn.addEventListener("click",()=>{
+            window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+        })
+    </script>
+</body>
+
+</html>
